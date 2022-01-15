@@ -4,32 +4,23 @@
 	<meta charset="UTF-8">
 	<title>Snapshot :: camera and gallery viewer</title>
 	<meta name="viewport" content="width=480">
-	<link href="dist/brick.css" type="text/css" rel="stylesheet" media="all and (max-width: 480px)">
 	<link href="style.css" type="text/css" rel="stylesheet">
-	<script src="dist/brick.js"></script>
 </head>
 <body>
 
-<nav>
-    <button class="takeBtn">Take</button>
-    <button class="showBtn">Show</button>
-    <button class="galleryBtn">Gallery</button>
-</nav>
-
-<x-deck selected-index="0">
-    <x-card>
-      <video></video>
-      <button class="snap">Take Picture</button>
-    </x-card>
-    <x-card>
-        <canvas class="canvas"></canvas>
-        <img src="" class="photo">
-        <button class="save">Save Picture</button>
-    </x-card>
-    <x-card>
-        
-    </x-card>
-</x-deck>
+<main class="deck">
+    <article class="card">
+      <video width="320" height="240" autoplay></video>
+      <button class="start-camera">Start Camera</button>
+      <button class="snap" disabled>Take Picture</button>
+    </article>
+    <article class="card">
+        <canvas class="canvas" width="320" height="240"></canvas>
+        <button class="save" >Save Picture</button>
+    </article>
+    <article class="card gallery">
+    </article>
+</main>
 
 <script src="main.js"></script>	
 </body>

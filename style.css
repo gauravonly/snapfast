@@ -1,7 +1,3 @@
-x-card, x-deck {
-  display: block;
-}
-
 html {
   font-size: 10px;
   font-family: sans-serif;
@@ -9,6 +5,7 @@ html {
 
 html, body {
   margin: 0;
+  height: 100%;
 }
 
 *, *:before, *:after {
@@ -27,29 +24,7 @@ nav {
 body {
   max-width: 1400px;
   margin: 0 auto;
-}
-
-x-card {
-  width: 100%;
-  position: relative;
-}
-
-x-card:nth-child(2) canvas {
-  display: none;
-}
-
-x-card:nth-child(1), x-card:nth-child(2) {
-  width: 30%;
-  float: left;
-  padding: 2rem;
-}
-
-x-card:nth-child(3) {
-  width: 40%;
-  float: left;
-  height: 100%;
-  overflow: auto;
-  padding: 2rem;
+  padding-top: 10px;
 }
 
 button {
@@ -63,8 +38,8 @@ button {
 	              inset 0px -4px 3px rgba(0,0,0,0.3);
   border: 1px solid rgba(0,0,0,0.5);
   border-radius: 10px;
-  
-  width: 100%;
+
+  width: 20%;
   font-size: 2.4rem;
   line-height: 2.5;
   margin-top: 10px;
@@ -76,6 +51,9 @@ button.cancel {
 
 video, img {
   display: block;
+  background: linear-gradient(to bottom,rebeccapurple,goldenrod);
+  border: 2px solid navajowhite;
+  border-radius: 2px;
 }
 
 video {
@@ -89,153 +67,21 @@ html {
   background-color: black;
 }
 
-x-deck {
+.deck {
   background-image: url(images/carbon2.jpg);
+  min-height: 100%;
 }
 
-/* the take picture card styling and view snapshot card styling */
-
-x-card:nth-child(1) video, x-card:nth-child(2) img {
-  width: 100%;
-  border-radius: 10px;
-  border: 3px solid black;
-  padding: 8px;
-  background-color: white;
+.card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-
-/* the gallery styling */
-
-x-card:nth-child(3) img {
-  width: 33%;
-  float: left;
-}
-
-/* Styling for medium layout - very few changes here, except that the gallery goes below the take picture and view capture boxes   */
-
-@media all and (max-width: 1024px) {
-  x-card:nth-child(1), x-card:nth-child(2) {
-    width: 50%;
-  }
-
-  x-card:nth-child(3) {
-    width: 100%;
-    clear: left;
-  }
-  
-  x-card:nth-child(3) img {
-    width: 20%;
-  }
-}
-
-/* Styling for mobile app view starts here; note that upon the screen size getting to this   */
-
-@media all and (max-width: 480px) {  
-/* styling resets for the mobile view */
-  x-card:nth-child(1), x-card:nth-child(2), x-card:nth-child(3) {
-    width: 100%;
-    float: none;
-    padding: 0;
-  }
-  
-  button {
-    margin-top: 0;
-    border-radius: 0;
-  }
-  
-  x-card:nth-child(1) video, x-card:nth-child(2) img {
-    border-radius: 0px;
-    border: none;
-    padding: 0;
-    background-color: 0;
-  }
-
-  /* general card styling */
-  x-card:nth-child(1) video, x-card:nth-child(2) img, x-card:nth-child(3) {
-    margin-top: 17.5vw;
-  }
-  
-  x-card:nth-child(1) button, x-card:nth-child(2) button {
-    position: absolute;
-    bottom: 0;
-  }
-  
-  x-card:nth-child(2) button:nth-of-type(2) {
-    bottom: 5.9rem;
-  }
-  
-  /* the take picture card styling */
-  
-  x-card:nth-child(1) button {
-    font-size: 7vw;
-  }
-  
-  /* the view snapshot card styling */
-  
-  
-  x-card:nth-child(2) button {
-    font-size: 7vw;
-  }
-
-  
-  /* the gallery card styling */
-  
-  x-card:nth-child(3) img {
-    width: 50%;
-  }
-
-/* the nav styling for the mobile view */
-	  
-  nav {   
-    width: 100%;
-    position: absolute;
-    z-index: 1000;
-     
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-  }
-  
-  nav button {
-    font-size: 6.8vw;
-    
-    -webkit-flex: 1;
-    -moz-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    
-    border-left: 1px solid rgba(100,100,100,0.4); 
-  }
-  
-  nav button:first-child {
-    border-left: 0;
-  }
-}
-
-@media all and (max-width: 480px) and (orientation: landscape) {
-
-  nav {   
-    width: auto;
-    
-    -webkit-flex-direction: column;
-    -moz-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-  }
-  
-  nav button {
-    font-size: 6.8vh;
-  }
-  
-  nav button {
-    border-left: 0;
-  }
-  
-  x-card:nth-child(1) video, x-card:nth-child(2) img, x-card:nth-child(3) {
-    margin-top: 0;
-  }
-  
-  x-card:nth-child(1) button, x-card:nth-child(2) button {
-    font-size: 2rem;
-  }
+.gallery{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-flow: wrap;
 }
